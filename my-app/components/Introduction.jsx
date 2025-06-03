@@ -1,0 +1,81 @@
+import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+
+const SolarImage = 'https://cdn.usegalileo.ai/sdxl10/357af57e-0631-44c7-b273-5e81aeaade66.png';
+
+const Introduction = () => {
+    return (
+        <View style={styles.section}>
+            <View style={styles.container}>
+                <Text style={styles.title}>Solar Glossary</Text>
+            </View>
+            <Image
+                source={{ uri: SolarImage }}
+                accessibilityLabel="Solar Image"
+                style={styles.solarImage}
+            />
+            <Text style={styles.heading}>
+                Welcome to Solar Simplified
+            </Text>
+            <Text style={styles.paragraph}>
+                Learn about solar in 5 minutes. No internet required.
+            </Text>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    section: {
+        backgroundColor: "yellow",
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    container: {
+        width: '100%',
+        alignItems: 'center',
+        backgroundColor: "#f8fafc",
+        padding: 4,
+        paddingBottom: 8,
+    },
+    title: {
+        color: "#0e141b",
+        fontSize: 18,
+        fontWeight: '700',
+        lineHeight: 22,
+        textAlign: 'center',
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingBottom: 12,
+    },
+    solarImage: {
+        width: 300,
+        height: 200,
+        resizeMode: 'cover',
+        borderRadius: 12,
+        marginTop: 20,
+    },
+    heading: {
+        color: '#0e141b',
+        letterSpacing: -0.01,
+        fontSize: 28,
+        fontWeight: 'bold',
+        lineHeight: 35,
+        paddingHorizontal: 16,
+        textAlign: 'center',
+        paddingBottom: 12,
+        paddingTop: 20,
+    },
+    paragraph: {
+        color: '#0e141b',
+        fontSize: 16,
+        fontWeight: 'normal',
+        lineHeight: 24,
+        paddingBottom: 12,
+        paddingTop: 4,
+        paddingHorizontal: 16,
+        textAlign: 'center',
+    },
+
+});
+
+export default Introduction;
