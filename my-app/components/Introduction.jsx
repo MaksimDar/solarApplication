@@ -1,4 +1,5 @@
 import React from "react";
+
 import { StyleSheet, Text, View, Image } from "react-native";
 
 const SolarImage = 'https://cdn.usegalileo.ai/sdxl10/357af57e-0631-44c7-b273-5e81aeaade66.png';
@@ -9,32 +10,30 @@ const Introduction = () => {
             <View style={styles.container}>
                 <Text style={styles.title}>Solar Glossary</Text>
             </View>
-            <Image
-                source={{ uri: SolarImage }}
-                accessibilityLabel="Solar Image"
-                style={styles.solarImage}
-            />
-            <Text style={styles.heading}>
-                Welcome to Solar Simplified
-            </Text>
-            <Text style={styles.paragraph}>
-                Learn about solar in 5 minutes. No internet required.
-            </Text>
+            <View >
+                <Image source={{ uri: SolarImage }} accessibilityLabel="Solar Image" style={styles.image} />
+            </View>
+            <Text style={styles.heading}>Welcome to Solar Simplified</Text>
+            <Text style={styles.paragraph}>Learn about solar in 5 minutes. No internet required</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     section: {
-        backgroundColor: "yellow",
+        flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        backgroundColor: "#f8fafc",
+        // backgroundColor: "yellow",
+
     },
     container: {
         width: '100%',
         alignItems: 'center',
         backgroundColor: "#f8fafc",
         padding: 4,
+        paddingTop: 48,
         paddingBottom: 8,
     },
     title: {
@@ -45,14 +44,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingLeft: 16,
         paddingRight: 16,
+        paddingTop: 12,
         paddingBottom: 12,
     },
-    solarImage: {
+    image: {
         width: 300,
         height: 200,
         resizeMode: 'cover',
         borderRadius: 12,
-        marginTop: 20,
+
     },
     heading: {
         color: '#0e141b',
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         textAlign: 'center',
     },
-
 });
 
 export default Introduction;
