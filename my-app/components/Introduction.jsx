@@ -1,10 +1,16 @@
 import React from "react";
 
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable, Alert } from "react-native";
 
 const SolarImage = 'https://cdn.usegalileo.ai/sdxl10/357af57e-0631-44c7-b273-5e81aeaade66.png';
 
 const Introduction = () => {
+    const handleLogIn = () => {
+        Alert.alert('Log in', 'Log in button pressed');
+    };
+    const handleSignUp = () => {
+        Alert.alert('Sign up', 'Sign up button pressed');
+    };
     return (
         <View style={styles.section}>
             <View style={styles.container}>
@@ -15,6 +21,22 @@ const Introduction = () => {
             </View>
             <Text style={styles.heading}>Welcome to Solar Simplified</Text>
             <Text style={styles.paragraph}>Learn about solar in 5 minutes. No internet required</Text>
+            <View style={styles.buttonContainer}>
+                <Pressable onPress={handleLogIn} style={({ pressed }) => [
+                    styles.buttonBase,
+                    styles.loginButton,
+                    { opacity: pressed ? 0.8 : 1 },
+                ]}>
+                    <Text style={styles.loginButtonText}>Log in</Text>
+                </Pressable>
+                <Pressable onPress={handleSignUp} style={({ pressed }) => [
+                    styles.buttonBase,
+                    styles.signupButton,
+                    { opacity: pressed ? 0.8 : 1 },
+                ]}>
+                    <Text style={styles.signupButtonText}>Sign up</Text>
+                </Pressable>
+            </View>
         </View>
     );
 };
@@ -75,6 +97,49 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         textAlign: 'center',
     },
+    buttonContainer: {
+        flex: 1,
+        maxWidth: 480,
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+        gap: 12,
+    },
+    buttonBase: {
+        flexDirection: 'row',
+        minWidth: 84,
+        maxWidth: 480,
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        borderRadius: 12,
+        height: 48,
+        paddingHorizontal: 20,
+        width: '100%',
+    },
+    loginButton: {
+        backgroundColor: '#E7EDF3',
+    },
+    loginButtonText: {
+        color: '#0E141B',
+        fontSize: 16,
+        fontWeight: 'bold',
+        lineHeight: 24,
+        letterSpacing: 0.24,
+    },
+    signupButton: {
+        backgroundColor: '#1980E6',
+    },
+    signupButtonText: {
+        color: '#F8FAFC',
+        fontSize: 16,
+        fontWeight: 'bold',
+        lineHeight: 24,
+        letterSpacing: 0.24,
+    },
+
+
 });
 
 export default Introduction;
